@@ -139,6 +139,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GCD_LMD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/11/GCD_LMD/">GCD(最大公约数)-LCM（最小公倍数）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/11/GCD_LMD/" class="archive-article-date">
+  	<time datetime="2017-01-11T11:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h1><blockquote>
+<ul>
+<li>最大公约数算法描述：<br>  古希腊数学家欧几里得(公元前330年—公元前275年)发明了一种巧妙的算法——<br>辗转相除法,又称欧几里得算法:<br>令较大数为m,较小数为n; 当m除以n的余数不等于0时,把n作为m,并把余数作为n,进行下一次循环; 当余数等于0时,返回n</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> temp = i%j;</div><div class="line">    <span class="keyword">if</span> (temp==<span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> j;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">return</span> gcd(j, temp);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> a, b;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b)!=<span class="number">0</span>) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, gcd(a, b));</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title=". 算法分析"></a>. 算法分析</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">key</th>
+<th style="text-align:center">value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">测试输入</td>
+<td style="text-align:center">m=100,n=44</td>
+</tr>
+<tr>
+<td style="text-align:center">测试输出</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">时间复杂度</td>
+<td style="text-align:center">O(N)</td>
+</tr>
+<tr>
+<td style="text-align:center">空间复杂度</td>
+<td style="text-align:center">O(N)</td>
+</tr>
+</tbody>
+</table>
+<p>每执行一次循环,m或者n至少有一个缩小了2倍,故时间复杂度上限为log2M。 对于大量的随机测试样例,每次循环平均能使m与n的值缩小一个10进位,所以平 均复杂度为O(lgM)。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">递归算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/11/GCD_LMD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-My-First-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -381,6 +494,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">递归算法</a>
               </li>
             
             <div class="clearfix"></div>
