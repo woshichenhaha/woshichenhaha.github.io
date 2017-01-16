@@ -22,7 +22,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
 
 问题描述：leetcode:152
 Find the contiguous subarray within an array (containing at least one number) which has the largest product.For example, given the array [2,3,-2,4],the con">
-<meta property="og:updated_time" content="2017-01-16T14:03:42.000Z">
+<meta property="og:updated_time" content="2017-01-16T14:08:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maximum Product Subarray">
 <meta name="twitter:description" content="Maximum Product Subarray
@@ -193,28 +193,17 @@ Find the contiguous subarray within an array (containing at least one number) wh
 </ul>
 </blockquote>
 <hr>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;dp = grid;</div><div class="line">    <span class="keyword">int</span> row = dp.size();</div><div class="line">    <span class="keyword">int</span> col = dp[<span class="number">0</span>].size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;row; i++) dp[i][<span class="number">0</span>] += dp[i<span class="number">-1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;col; i++) dp[<span class="number">0</span>][i] += dp[<span class="number">0</span>][i<span class="number">-1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;row; i++)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;col; j++) &#123;</div><div class="line">            dp[i][j] += min(dp[i<span class="number">-1</span>][j] , dp[i][j<span class="number">-1</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dp[row<span class="number">-1</span>][col<span class="number">-1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; b(<span class="number">3</span>);</div><div class="line">    <span class="keyword">int</span> a[]  = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">7</span>&#125;;</div><div class="line">    <span class="keyword">int</span> a1[] = &#123;<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</div><div class="line">    <span class="keyword">int</span> a2[] = &#123;<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>&#125;;</div><div class="line">    b[<span class="number">0</span>].assign(a,a+<span class="number">4</span>);</div><div class="line">    b[<span class="number">1</span>].assign(a1,a1+<span class="number">4</span>);</div><div class="line">    b[<span class="number">2</span>].assign(a2,a2+<span class="number">4</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,minPathSum(b));</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出：14</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; maxproduct(nums.size(),<span class="number">0</span>);</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; minproduct(nums.size(),<span class="number">0</span>);</div><div class="line">    maxproduct[<span class="number">0</span>] = nums[<span class="number">0</span>];</div><div class="line">    minproduct[<span class="number">0</span>] = nums[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> maxans = nums[<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nums.size(); i++) &#123;</div><div class="line">        maxproduct[i] = max(nums[i], max(nums[i]*maxproduct[i<span class="number">-1</span>], nums[i]*minproduct[i<span class="number">-1</span>]));</div><div class="line">        minproduct[i] = min(nums[i], min(nums[i]*minproduct[i<span class="number">-1</span>], nums[i]*maxproduct[i<span class="number">-1</span>]));</div><div class="line">        </div><div class="line">        maxans = max(maxans, maxproduct[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxans;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">-2</span>, <span class="number">4</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b(a, a+<span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, maxProduct(b));</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：6</p>
 <hr>
-<h2 id="语法注意点："><a href="#语法注意点：" class="headerlink" title="语法注意点："></a>语法注意点：</h2><ol>
-<li>使用vector定义二维数组：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vector&lt;vector&lt;int&gt; &gt; b(3);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>定义了一个二维数组b，有3行；列数未知。<br>注意：最后两个 <strong>&gt; &gt;中间有个空格</strong>。</p>
-</blockquote>
-<ol>
-<li><p>vector定义的二维数组的行数： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int row = dp.size();</div></pre></td></tr></table></figure>
-</li>
-<li><p>vector定义的二维数组的列数： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int col = dp[0].size();</div></pre></td></tr></table></figure>
+<h2 id="算法注意点："><a href="#算法注意点：" class="headerlink" title="算法注意点："></a>算法注意点：</h2><ol>
+<li>maxproduct是包含nums[i]时的局部最大值，maxans是全局最大值；算完maxproduct后一定别忘了更新全局最大值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">maxans = max(maxans, maxproduct[i]);</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <ol>
-<li><p>vector定义的二维数组的赋值：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vector&lt;vector&lt;int&gt; &gt; b(3);</div><div class="line">int a[]  = &#123;2,4,3,7&#125;;</div><div class="line">int a1[] = &#123;5,3,2,1&#125;;</div><div class="line">int a2[] = &#123;4,8,6,2&#125;;</div><div class="line">b[0].assign(a,a+4);</div><div class="line">b[1].assign(a1,a1+4);</div><div class="line">b[2].assign(a2,a2+4);</div></pre></td></tr></table></figure>
+<li><p>以上空间复杂度为O(n),所以可以用临时变量来算这样空间复杂度为O(n)：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">int maxProduct(int[] A) &#123;</div><div class="line">    if (A.length == 0) &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    int maxherepre = A[0];</div><div class="line">    int minherepre = A[0];</div><div class="line">    int maxsofar = A[0];</div><div class="line">    int maxhere, minhere;</div><div class="line">    </div><div class="line">    for (int i = 1; i &lt; A.length; i++) &#123;</div><div class="line">        maxhere = Math.max(Math.max(maxherepre * A[i], minherepre * A[i]), A[i]);</div><div class="line">        minhere = Math.min(Math.min(maxherepre * A[i], minherepre * A[i]), A[i]);</div><div class="line">        maxsofar = Math.max(maxhere, maxsofar);</div><div class="line">        maxherepre = maxhere;</div><div class="line">        minherepre = minhere;</div><div class="line">    &#125;</div><div class="line">    return maxsofar;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -230,7 +219,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -238,7 +227,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -456,7 +445,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,7 +453,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +465,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,10 +478,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>
