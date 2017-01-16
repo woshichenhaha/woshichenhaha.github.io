@@ -139,6 +139,130 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Maximum-Product-Subarray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/16/Maximum-Product-Subarray/">Maximum Product Subarray</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/16/Maximum-Product-Subarray/" class="archive-article-date">
+  	<time datetime="2017-01-16T14:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Maximum-Product-Subarray"><a href="#Maximum-Product-Subarray" class="headerlink" title="Maximum Product Subarray"></a>Maximum Product Subarray</h1><hr>
+<blockquote>
+<ul>
+<li>问题描述：leetcode:152</li>
+<li><p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.<br>For example, given the array [2,3,-2,4],<br>the contiguous subarray [2,3] has the largest product = 6.</p>
+</li>
+<li><p>给定一个数组，找出该数组的连续字串中乘积最大的值；比如给定 [2,3,-2,4]，则答案时当为 [2,3]时，答案为6。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><blockquote>
+<ul>
+<li>数组中的元素可以为正也可以为负。</li>
+<li>设置两个数组，分别记录<strong>包括当前元素</strong>在内的字串所能构成的最大和最小值。</li>
+<li>至于当前最大（包括当前元素），可能是之前最大乘以当前元素、也可能是前一个元素最小乘以当前元素、也可能是当前元素。</li>
+<li>然后根据当前元素最大更新全局元素最大。</li>
+<li>该问题是dp问题，也是dp问题中的局部最优和全局最优问题。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; &amp;dp = grid;</div><div class="line">    <span class="keyword">int</span> row = dp.size();</div><div class="line">    <span class="keyword">int</span> col = dp[<span class="number">0</span>].size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;row; i++) dp[i][<span class="number">0</span>] += dp[i<span class="number">-1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;col; i++) dp[<span class="number">0</span>][i] += dp[<span class="number">0</span>][i<span class="number">-1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;row; i++)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;col; j++) &#123;</div><div class="line">            dp[i][j] += min(dp[i<span class="number">-1</span>][j] , dp[i][j<span class="number">-1</span>]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dp[row<span class="number">-1</span>][col<span class="number">-1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; b(<span class="number">3</span>);</div><div class="line">    <span class="keyword">int</span> a[]  = &#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">7</span>&#125;;</div><div class="line">    <span class="keyword">int</span> a1[] = &#123;<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</div><div class="line">    <span class="keyword">int</span> a2[] = &#123;<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>&#125;;</div><div class="line">    b[<span class="number">0</span>].assign(a,a+<span class="number">4</span>);</div><div class="line">    b[<span class="number">1</span>].assign(a1,a1+<span class="number">4</span>);</div><div class="line">    b[<span class="number">2</span>].assign(a2,a2+<span class="number">4</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,minPathSum(b));</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：14</p>
+<hr>
+<h2 id="语法注意点："><a href="#语法注意点：" class="headerlink" title="语法注意点："></a>语法注意点：</h2><ol>
+<li>使用vector定义二维数组：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vector&lt;vector&lt;int&gt; &gt; b(3);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>定义了一个二维数组b，有3行；列数未知。<br>注意：最后两个 <strong>&gt; &gt;中间有个空格</strong>。</p>
+</blockquote>
+<ol>
+<li><p>vector定义的二维数组的行数： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int row = dp.size();</div></pre></td></tr></table></figure>
+</li>
+<li><p>vector定义的二维数组的列数： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int col = dp[0].size();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>vector定义的二维数组的赋值：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vector&lt;vector&lt;int&gt; &gt; b(3);</div><div class="line">int a[]  = &#123;2,4,3,7&#125;;</div><div class="line">int a1[] = &#123;5,3,2,1&#125;;</div><div class="line">int a2[] = &#123;4,8,6,2&#125;;</div><div class="line">b[0].assign(a,a+4);</div><div class="line">b[1].assign(a1,a1+4);</div><div class="line">b[2].assign(a2,a2+4);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/16/Maximum-Product-Subarray/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Minimum-Path-Sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -216,7 +340,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -224,7 +348,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -533,19 +657,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
@@ -1007,7 +1131,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,7 +1139,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1023,7 +1147,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">递归算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1032,10 +1160,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">递归算法</a>
               </li>
              
               <li class="article-tag-list-item">
