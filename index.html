@@ -139,6 +139,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Best-Time-to-Buy-and-Sell-Stock-IV" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/18/Best-Time-to-Buy-and-Sell-Stock-IV/">Best Time to Buy and Sell Stock IV</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/18/Best-Time-to-Buy-and-Sell-Stock-IV/" class="archive-article-date">
+  	<time datetime="2017-01-18T13:20:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Best-Time-to-Buy-and-Sell-Stock-IV"><a href="#Best-Time-to-Buy-and-Sell-Stock-IV" class="headerlink" title="Best Time to Buy and Sell Stock IV"></a>Best Time to Buy and Sell Stock IV</h1><hr>
+<blockquote>
+<ul>
+<li>问题描述：leetcode:188</li>
+<li>Say you have an array for which the ith element is the price of a given stock on day i.<br>Design an algorithm to find the maximum profit. You may complete at most k transactions.<br>Note:<br>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</li>
+</ul>
+</blockquote>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p><img src="http://img.blog.csdn.net/20170118205959814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20170118210107707?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<h2 id="按照思路写的代码："><a href="#按照思路写的代码：" class="headerlink" title="按照思路写的代码："></a>按照思路写的代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(k==<span class="number">0</span>||prices.size()&lt;<span class="number">2</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> maxdiff = <span class="number">0</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; T(k+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; (prices.size(), <span class="number">0</span>));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;k+<span class="number">1</span>; i++)&#123;</div><div class="line">        maxdiff = T[i<span class="number">-1</span>][<span class="number">0</span>] - prices[<span class="number">0</span>] ;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;prices.size(); j++)&#123;</div><div class="line">            T[i][j] = max(T[i][j<span class="number">-1</span>], maxdiff+prices[j]);</div><div class="line">            maxdiff = max(maxdiff, T[i<span class="number">-1</span>][j] - prices[j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> T[k][prices.size()<span class="number">-1</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是该代码运行时会报错：</p>
+<p><img src="http://img.blog.csdn.net/20170118210416973?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>也就是说当k＝1000000000时会导致内存出错；所以可以优化代码，也就是当<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">k&gt;prices.size()</div></pre></td></tr></table></figure></p>
+<p>时使用不限定交易次数时的算法（Best Time to Buy and Sell Stock II；leetcode122）</p>
+<h2 id="修改之后代码："><a href="#修改之后代码：" class="headerlink" title="修改之后代码："></a>修改之后代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(k==<span class="number">0</span>||prices.size()&lt;<span class="number">2</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(k&gt;prices.size())&#123;</div><div class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;prices.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(prices[i]&gt;prices[i<span class="number">-1</span>])&#123;</div><div class="line">                ans += (prices[i]-prices[i<span class="number">-1</span>]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> maxdiff = <span class="number">0</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; T(k+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; (prices.size(), <span class="number">0</span>));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;k+<span class="number">1</span>; i++)&#123;</div><div class="line">        maxdiff = T[i<span class="number">-1</span>][<span class="number">0</span>] - prices[<span class="number">0</span>] ;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;prices.size(); j++)&#123;</div><div class="line">            T[i][j] = max(T[i][j<span class="number">-1</span>], maxdiff+prices[j]);</div><div class="line">            maxdiff = max(maxdiff, T[i<span class="number">-1</span>][j] - prices[j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> T[k][prices.size()<span class="number">-1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/18/Best-Time-to-Buy-and-Sell-Stock-IV/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Maximum-Product-Subarray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -205,7 +302,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -213,7 +310,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -329,7 +426,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -337,7 +434,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -646,11 +743,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1120,11 +1217,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,19 +1241,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>
