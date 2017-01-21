@@ -6,15 +6,59 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类 | Hellotom的博客</title>
+  <title>N-Queens | Hellotom的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="N-Queens
+
+
+问题描述：leetcode:51
+[https://leetcode.com/problems/n-queens/][1]
+
+
+
+思路：
+利用回溯法。
+一行一行往下遍历，在每行中又看每一列中的位置是否与之前的放Q的位置形成冲突。
+冲突又四种：同行、同列、正斜线、反斜线。
+同行不需要考察，因为当一行中放了一个Q时，进行下一行的遍历了。
+在进行下一行遍历的函数后面，把放置的Q的那">
+<meta property="og:type" content="article">
+<meta property="og:title" content="N-Queens">
+<meta property="og:url" content="http://yoursite.com/2017/01/21/N-Queens/index.html">
 <meta property="og:site_name" content="Hellotom的博客">
-<meta property="og:updated_time" content="2017-01-11T09:37:08.000Z">
+<meta property="og:description" content="N-Queens
+
+
+问题描述：leetcode:51
+[https://leetcode.com/problems/n-queens/][1]
+
+
+
+思路：
+利用回溯法。
+一行一行往下遍历，在每行中又看每一列中的位置是否与之前的放Q的位置形成冲突。
+冲突又四种：同行、同列、正斜线、反斜线。
+同行不需要考察，因为当一行中放了一个Q时，进行下一行的遍历了。
+在进行下一行遍历的函数后面，把放置的Q的那">
+<meta property="og:image" content="http://img.blog.csdn.net/20170121174711682?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-01-21T10:08:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="N-Queens">
+<meta name="twitter:description" content="N-Queens
+
+
+问题描述：leetcode:51
+[https://leetcode.com/problems/n-queens/][1]
+
+
+
+思路：
+利用回溯法。
+一行一行往下遍历，在每行中又看每一列中的位置是否与之前的放Q的位置形成冲突。
+冲突又四种：同行、同列、正斜线、反斜线。
+同行不需要考察，因为当一行中放了一个Q时，进行下一行的遍历了。
+在进行下一行遍历的函数后面，把放置的Q的那">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170121174711682?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Hellotom的博客" type="application/atom+xml">
   
@@ -138,27 +182,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-N-Queens" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分类
+      N-Queens
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-01-11T08:01:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-11</time>
+        <a href="/2017/01/21/N-Queens/" class="archive-article-date">
+  	<time datetime="2017-01-21T10:07:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="N-Queens"><a href="#N-Queens" class="headerlink" title="N-Queens"></a>N-Queens</h1><hr>
+<blockquote>
+<ul>
+<li>问题描述：leetcode:51</li>
+<li>[<a href="https://leetcode.com/problems/n-queens/][1" target="_blank" rel="external">https://leetcode.com/problems/n-queens/][1</a>]<br><img src="http://img.blog.csdn.net/20170121174711682?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="N-Queens"></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><ul>
+<li>利用回溯法。</li>
+<li>一行一行往下遍历，在每行中又看每一列中的位置是否与之前的放Q的位置形成冲突。</li>
+<li>冲突又四种：同行、同列、正斜线、反斜线。</li>
+<li>同行不需要考察，因为当一行中放了一个Q时，进行下一行的遍历了。</li>
+<li>在进行下一行遍历的函数后面，把放置的Q的那个位置还要重新放“.”;因为还要考察本行后面的位置是否还可以形成答案。</li>
+</ul>
+<hr>
+<h2 id="按照思路写的代码："><a href="#按照思路写的代码：" class="headerlink" title="按照思路写的代码："></a>按照思路写的代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; solveNQueens(<span class="keyword">int</span> n) &#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; res;<span class="comment">//解的集合</span></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; nQueens(n, <span class="built_in">string</span>(n, <span class="string">'.'</span>));<span class="comment">//其中一个解</span></div><div class="line">    solveNQueens(res, nQueens, <span class="number">0</span>, n);<span class="comment">//从第0行开始遍历</span></div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solveNQueens</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; &amp;res, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;nQueens, <span class="keyword">int</span> row, <span class="keyword">int</span> &amp;n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (row == n) &#123;<span class="comment">//当一行一行遍历，到达最后一行后，说明找到一个合格的解，把该解push到解的集合中</span></div><div class="line">        res.push_back(nQueens);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> col = <span class="number">0</span>; col != n; ++col)</div><div class="line">        <span class="keyword">if</span> (isValid(nQueens, row, col, n)) &#123;</div><div class="line">            nQueens[row][col] = <span class="string">'Q'</span>;<span class="comment">//当位置合格时，放置Q;</span></div><div class="line">            solveNQueens(res, nQueens, row + <span class="number">1</span>, n);</div><div class="line">            nQueens[row][col] = <span class="string">'.'</span>;<span class="comment">//当本位置以下所有的行中所有的解都解出来后，要把该行重新设置为“.”,以便查看本行后面的位置是否还有可以的位置</span></div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;nQueens, <span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> &amp;n)</span> </span>&#123;</div><div class="line">    <span class="comment">//check if the column had a queen before.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != row; ++i)</div><div class="line">        <span class="keyword">if</span> (nQueens[i][col] == <span class="string">'Q'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="comment">//check if the 45° diagonal had a queen before.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = row - <span class="number">1</span>, j = col - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>; --i, --j)</div><div class="line">        <span class="keyword">if</span> (nQueens[i][j] == <span class="string">'Q'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="comment">//check if the 135° diagonal had a queen before.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = row - <span class="number">1</span>, j = col + <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n; --i, ++j)<span class="comment">//注意： i &gt;= 0 &amp;&amp; j &lt; n</span></div><div class="line">        <span class="keyword">if</span> (nQueens[i][j] == <span class="string">'Q'</span>)</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+
       
 
       
@@ -166,7 +228,41 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">回溯法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/leetcode/" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -216,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/21/N-Queens/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -228,6 +324,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/18/Best-Time-to-Buy-and-Sell-Stock-IV/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Best Time to Buy and Sell Stock IV</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -236,7 +342,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="分类" data-url="http://yoursite.com/categories/index.html"></div>
+	<div class="ds-thread" data-thread-key="N-Queens" data-title="N-Queens" data-url="http://yoursite.com/2017/01/21/N-Queens/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -278,7 +384,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
