@@ -13,7 +13,12 @@
 
 字符串的长度：
 C语言风格的字符串末尾有一个‘\0’。
-比如：   * = &quot;HelloWorld&quot;; ```12345678910111213141516171819202122232425262728293031 在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0” 在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’ 如下">
+比如：   char * = “HelloWorld”;在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0”在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’如下图所示：
+
+
+
+那么如何求字符串的长度呢？
+定义一个指针p指向0号位置，然后再定义一个变量初始化为0；把指针p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言风格字符串">
 <meta property="og:url" content="http://yoursite.com/2017/02/04/C语言风格字符串/index.html">
@@ -23,12 +28,18 @@ C语言风格的字符串末尾有一个‘\0’。
 
 字符串的长度：
 C语言风格的字符串末尾有一个‘\0’。
-比如：   * = &quot;HelloWorld&quot;; ```12345678910111213141516171819202122232425262728293031 在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0” 在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’ 如下">
+比如：   char * = “HelloWorld”;在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0”在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’如下图所示：
+
+
+
+那么如何求字符串的长度呢？
+定义一个指针p指向0号位置，然后再定义一个变量初始化为0；把指针p">
 <meta property="og:image" content="http://img.blog.csdn.net/20170204172418421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170204173349713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170204174623781?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170204174826595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170204180445915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-02-04T10:39:25.000Z">
+<meta property="og:updated_time" content="2017-02-04T10:42:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言风格字符串">
 <meta name="twitter:description" content="C语言风格字符串
@@ -36,7 +47,12 @@ C语言风格的字符串末尾有一个‘\0’。
 
 字符串的长度：
 C语言风格的字符串末尾有一个‘\0’。
-比如：   * = &quot;HelloWorld&quot;; ```12345678910111213141516171819202122232425262728293031 在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0” 在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’ 如下">
+比如：   char * = “HelloWorld”;在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0”在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’如下图所示：
+
+
+
+那么如何求字符串的长度呢？
+定义一个指针p指向0号位置，然后再定义一个变量初始化为0；把指针p">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170204172418421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Hellotom的博客" type="application/atom+xml">
@@ -186,8 +202,14 @@ C语言风格的字符串末尾有一个‘\0’。
 <hr>
 <h2 id="字符串的长度："><a href="#字符串的长度：" class="headerlink" title="字符串的长度："></a>字符串的长度：</h2><ul>
 <li><strong>C语言风格的字符串末尾有一个‘\0’。</strong></li>
-<li>比如：   <figure class="highlight plain"><figcaption><span>* = "HelloWorld"; ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"> 在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0”</div><div class="line"> 在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’</div><div class="line"> 如下图所示：</div><div class="line"></div><div class="line">![这里写图片描述](http://img.blog.csdn.net/20170204173349713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)</div><div class="line"></div><div class="line"> - **那么如何求字符串的长度呢？**</div><div class="line"> - 定义一个指针p指向0号位置，然后再定义一个变量初始化为0；把指针p不断往后移动，移动的过程中将那个变量不断加一；最终p所指向的字符是&apos;\0&apos;;这时候停止循环返回定义的变量的值。</div><div class="line"> </div><div class="line">### 求字符串的长度的代码：</div><div class="line"></div><div class="line">```c++</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">const int Max=32;</div><div class="line">//求字符串的长度</div><div class="line">int strLength(char* str)&#123;</div><div class="line">	int count=0; //count记录字符串的长度</div><div class="line">	char* p=str; //定义一个指针指向第一个字符</div><div class="line">	while(*p++)&#123; //当p没有指向&apos;\0&apos;时，则一直循环往后移动，直到指向&apos;\0&apos;</div><div class="line">		count++; //移动的过程中count增大</div><div class="line">	&#125;</div><div class="line">	return count;</div><div class="line">&#125;</div><div class="line">int main(int argc, char **argv) &#123;</div><div class="line">	char* str=(char*)malloc(sizeof(char)*Max);</div><div class="line">	scanf(&quot;%s&quot;,str);</div><div class="line">	printf(&quot;%d %d\n&quot;,strLength(str),strlen(str));  //strLength为我们自定义的求长度的方法，strlen为c语言自带的方法</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>比如：   char * = “HelloWorld”;<br>在堆内存中会有一个字符数组，它存储的是“HelloWorld”末尾有一个“\0”<br>在栈内存中会有一个字符指针，名字为str指向字符数组0号位置的字符‘H’<br>如下图所示：</li>
 </ul>
+<p><img src="http://img.blog.csdn.net/20170204173349713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGVsbG90b21oYWhh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<ul>
+<li><strong>那么如何求字符串的长度呢？</strong></li>
+<li>定义一个指针p指向0号位置，然后再定义一个变量初始化为0；把指针p不断往后移动，移动的过程中将那个变量不断加一；最终p所指向的字符是’\0’;这时候停止循环返回定义的变量的值。</li>
+</ul>
+<h3 id="求字符串的长度的代码："><a href="#求字符串的长度的代码：" class="headerlink" title="求字符串的长度的代码："></a>求字符串的长度的代码：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max=<span class="number">32</span>;</div><div class="line"><span class="comment">//求字符串的长度</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">strLength</span><span class="params">(<span class="keyword">char</span>* str)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> count=<span class="number">0</span>; <span class="comment">//count记录字符串的长度</span></div><div class="line">	<span class="keyword">char</span>* p=str; <span class="comment">//定义一个指针指向第一个字符</span></div><div class="line">	<span class="keyword">while</span>(*p++)&#123; <span class="comment">//当p没有指向'\0'时，则一直循环往后移动，直到指向'\0'</span></div><div class="line">		count++; <span class="comment">//移动的过程中count增大</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> count;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</div><div class="line">	<span class="keyword">char</span>* str=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>)*Max);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,strLength(str),<span class="built_in">strlen</span>(str));  <span class="comment">//strLength为我们自定义的求长度的方法，strlen为c语言自带的方法</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h2 id="字符串的拷贝："><a href="#字符串的拷贝：" class="headerlink" title="字符串的拷贝："></a>字符串的拷贝：</h2><ul>
 <li>当考虑目标字符串dest比源字符串src短时：</li>
@@ -495,15 +517,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">递归算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">递归算法</a>
               </li>
              
               <li class="article-tag-list-item">
